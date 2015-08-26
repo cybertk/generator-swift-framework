@@ -1,0 +1,30 @@
+{
+  "name": "generator-swift-framework",
+  "version": "0.0.0",
+  "description": "Scaffolds out a Xcode framework project based on Swift",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "cybertk/generator-swift-framework",
+  "author": {
+    "name": "",
+    "email": "",
+    "url": "https://github.com/cybertk"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "generators"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^0.19.0",
+    "chalk": "^1.0.0",
+    "yosay": "^1.0.2"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  }
+}
