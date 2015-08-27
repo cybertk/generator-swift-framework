@@ -36,6 +36,8 @@ describe('swift.framework:app', function () {
         var files = [
             'example.xcodeproj/project.pbxproj',
             'example.xcodeproj/project.xcworkspace/contents.xcworkspacedata',
+            // Shared scheme
+            'example.xcodeproj/xcshareddata/xcschemes/example.xcscheme',
         ];
         assert.file(files);
         noFilesContent(files, pattern);
