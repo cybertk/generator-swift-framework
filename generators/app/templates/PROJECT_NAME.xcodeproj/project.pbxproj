@@ -10,6 +10,7 @@
 		9208B45D1B8EBDE000C1631B /* <%= projectName %>.h in Headers */ = {isa = PBXBuildFile; fileRef = 9208B45C1B8EBDE000C1631B /* <%= projectName %>.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9208B4641B8EBDE000C1631B /* <%= projectName %>.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9208B4591B8EBDE000C1631B /* <%= projectName %>.framework */; };
 		9208B4691B8EBDE000C1631B /* UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208B4681B8EBDE000C1631B /* UnitTests.swift */; };
+		92DC99081B8EF03100350407 /* <%= projectName %>.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC99071B8EF03100350407 /* <%= projectName %>.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		9208B4631B8EBDE000C1631B /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9208B4681B8EBDE000C1631B /* UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTests.swift; sourceTree = "<group>"; };
 		9208B46A1B8EBDE000C1631B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92DC99071B8EF03100350407 /* <%= projectName %>.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = <%= projectName %>.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				9208B45C1B8EBDE000C1631B /* <%= projectName %>.h */,
 				9208B45E1B8EBDE000C1631B /* Info.plist */,
+				92DC99071B8EF03100350407 /* <%= projectName %>.swift */,
 			);
 			path = <%= projectName %>;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 		9208B4501B8EBDE000C1631B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = <%= organizationName %>;
 				TargetAttributes = {
@@ -193,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92DC99081B8EF03100350407 /* <%= projectName %>.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +313,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -319,6 +325,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "<%= organizationId %>.<%= projectName %>";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -326,6 +333,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;

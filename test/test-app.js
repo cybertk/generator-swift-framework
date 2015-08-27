@@ -5,7 +5,18 @@ var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 var os = require('os');
 
+function noFilesContent(files, pattern) {
+
+    files.forEach(function (file) {
+        assert.noFileContent(file, pattern);
+    });
+}
+
 describe('swift.framework:app', function () {
+
+    // Placeholders
+    var pattern = /(PROJECT-NAME|PROJECT_NAME|ORGANIZATION-ID|ORGANIZATION_NAME)/;
+
     before(function (done) {
         helpers.run(path.join(__dirname, '../generators/app'))
             .withOptions({
@@ -20,29 +31,41 @@ describe('swift.framework:app', function () {
     });
 
     it('creates Xcode project', function () {
+
         // Xcode project
-        assert.file([
+        var files = [
             'example.xcodeproj/project.pbxproj',
             'example.xcodeproj/project.xcworkspace/contents.xcworkspacedata',
-        ]);
+        ];
+        assert.file(files);
+        noFilesContent(files, pattern);
+    });
+
+    it('creates Framework target', function () {
 
         // Framework target
-        assert.file([
+        var files = [
             'example/Info.plist',
             'example/example.h',
-        ]);
+            'example/example.swift',
+        ];
+        assert.file(files);
+        noFilesContent(files, pattern);
+    });
+
+    it('creates UnitTests target', function () {
 
         // UnitTests target
-        assert.file([
+        var files = [
             'UnitTests/Info.plist',
             'UnitTests/UnitTests.swift',
-        ]);
+        ];
+        assert.file(files);
+        noFilesContent(files, pattern);
+
     });
 
     it('creates files', function () {
-        assert.file([
-            '.travis.yml',
-            'LICENSE',
-        ]);
+        assert.file(['.travis.yml', 'LICENSE', ]);
     });
 });

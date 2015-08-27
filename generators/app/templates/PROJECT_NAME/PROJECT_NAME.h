@@ -2,7 +2,7 @@
 //  <%= projectName %>.h
 //  <%= projectName %>
 //
-//  Created by generator-swift-framework on 8/27/15.
+//  Created by generator-swift-framework.
 //  Copyright © 2015 <%= organizationName %>. All rights reserved.
 //
 
