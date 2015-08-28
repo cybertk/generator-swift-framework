@@ -2,62 +2,115 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
-var path = require('path');
-var glob = require('glob');
+var readdirp = require('readdirp');
 var yaml = require('yamljs');
+var _ = require('underscore');
 
 module.exports = yeoman.generators.Base.extend({
-    prompting: function () {
-        var done = this.async();
+    prompting: {
+        askFor: function () {
+            var done = this.async();
 
-        // Have Yeoman greet the user.
-        this.log(yosay('Welcome to the outstanding ' + chalk.red('swift.framework') + ' generator!'));
+            // Have Yeoman greet the user.
+            this.log(yosay('Welcome to the outstanding ' + chalk.red('swift.framework') + ' generator!'));
 
-        var prompts = [{
-            type: 'input',
-            name: 'projectName',
-            message: 'Project Name',
-            default: 'MyProject'
-        }, {
-            type: 'input',
-            name: 'organizationName',
-            message: 'Organization Name',
-            default: 'MyOrg',
-            store: true
-        }, {
-            type: 'input',
-            name: 'organizationId',
-            message: 'Organization Identifier',
-            default: 'org.my',
-            store: true
-        }];
+            var prompts = [{
+                type: 'input',
+                name: 'projectName',
+                message: 'Project Name',
+                default: 'MyProject'
+            }, {
+                type: 'input',
+                name: 'organizationName',
+                message: 'Organization Name',
+                default: 'MyOrg',
+                store: true
+            }, {
+                type: 'input',
+                name: 'organizationId',
+                message: 'Organization Identifier',
+                default: 'org.my',
+                store: true
+            }];
 
-        this.prompt(prompts, function (props) {
-            this.props = props;
-            // To access props later use this.props.someOption;
+            this.prompt(prompts, function (props) {
+                this.projectName = props.projectName;
+                this.organizationName = props.organizationName;
+                this.organizationId = props.organizationId;
 
-            done();
-        }.bind(this));
+                this.props = props;
+
+                done();
+            }.bind(this));
+        },
+
+        askForCocoaPods: function () {
+            var done = this.async();
+
+            var prompts = [{
+                type: 'confirm',
+                name: 'cocoapods',
+                message: 'Would you like to distribute via CocoaPods?',
+                default: true
+            }];
+
+            this.prompt(prompts, function (props) {
+                this.cocoapods = props.cocoapods;
+                done();
+            }.bind(this));
+        },
+
+        askForGitHub: function () {
+            var done = this.async();
+            var cocoapods = this.cocoapods;
+
+            var prompts = [{
+                type: 'input',
+                name: 'githubUser',
+                message: 'Would you mind telling me your username on GitHub?',
+                store: true,
+                when: function () {
+                    return cocoapods;
+                }
+            }];
+
+            this.prompt(prompts, function (props) {
+                this.githubUser = props.githubUser;
+                this.props = _.extend(this.props, props);
+                done();
+            }.bind(this));
+        },
     },
 
     writing: {
-        app: function () {
+        xcodeproj: function () {
+            var done = this.async();
+            var options = {
+                root: this.templatePath(),
+                fileFilter: [
+                    '!.gitignore',
+                    '!LICENSE',
+                    '!PROJECT_NAME.podspec',
+                ],
+            };
 
-            var tp = this.templatePath();
-            glob.sync(path.join(tp, '**'), {
-                nodir: true
-            }).forEach(function (file) {
-
-                var source = path.relative(tp, file);
-                source = source.replace(/PROJECT_NAME/g, this.props.projectName);
-
-                this.fs.copyTpl(file, this.destinationPath(source), this.props);
-
-            }, this);
+            readdirp(options)
+                .on('data', function (entry) {
+                    var source = entry.path.replace(/PROJECT_NAME/g, this.projectName);
+                    // console.log(entry.fullPath, this.destinationPath(source))
+                    this.fs.copyTpl(entry.fullPath, this.destinationPath(source), this.props);
+                }.bind(this))
+                .on('end', function () {
+                    done();
+                });
         },
 
         license: function () {
             this.fs.copyTpl(this.templatePath('LICENSE'), this.destinationPath('LICENSE'), this.props);
+        },
+
+        projectFiles: function () {
+            this.fs.copy(this.templatePath('.gitignore'), this.destinationPath('.gitignore'));
         },
 
         travis: function () {
@@ -68,7 +121,16 @@ module.exports = yeoman.generators.Base.extend({
                 ],
             };
             this.fs.write(this.destinationPath('.travis.yml'), yaml.stringify(script, 2));
-        }
+        },
+
+        cocoapods: function () {
+            if (!this.cocoapods) {
+                return;
+            }
+
+            var podspec = this.destinationPath(this.projectName + '.podspec');
+            this.fs.copyTpl(this.templatePath('PROJECT_NAME.podspec'), podspec, this.props);
+        },
     },
 
     install: function () {}
