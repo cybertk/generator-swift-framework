@@ -133,5 +133,8 @@ module.exports = yeoman.generators.Base.extend({
         },
     },
 
-    install: function () {}
+    install: function () {
+        this.log('Carthage bootstraping');
+        this.spawnCommand('carthage', ['bootstrap']);
+    }
 });

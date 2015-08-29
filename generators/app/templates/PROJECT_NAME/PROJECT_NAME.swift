@@ -11,12 +11,12 @@ public class <%= projectName %> {
     
     // MARK: Properties
     
-    private var someProperty: String
+    var someProperty: String
     
     // MARK: Initilizers
     
     public init() {
-        someProperty = "s"
+        someProperty = "a string"
     }
 }
 

@@ -80,5 +80,10 @@ describe('swift.framework:app', function () {
             assert.fileContent('example.podspec', 'https://github.com/gu/example.git');
             assert.noFileContent('example.podspec', pattern);
         });
+
+        it('creates Cartfile', function () {
+            assert.file('Cartfile.private');
+            assert.file('Cartfile.resolved');
+        });
     });
 });

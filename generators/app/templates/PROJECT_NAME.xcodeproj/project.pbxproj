@@ -11,6 +11,7 @@
 		9208B4641B8EBDE000C1631B /* <%= projectName %>.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9208B4591B8EBDE000C1631B /* <%= projectName %>.framework */; };
 		9208B4691B8EBDE000C1631B /* UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208B4681B8EBDE000C1631B /* UnitTests.swift */; };
 		92DC99081B8EF03100350407 /* <%= projectName %>.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC99071B8EF03100350407 /* <%= projectName %>.swift */; settings = {ASSET_TAGS = (); }; };
+		92DC990A1B9215EE00350407 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92DC99091B9215EE00350407 /* Nimble.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 		9208B4681B8EBDE000C1631B /* UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTests.swift; sourceTree = "<group>"; };
 		9208B46A1B8EBDE000C1631B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92DC99071B8EF03100350407 /* <%= projectName %>.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = <%= projectName %>.swift; sourceTree = "<group>"; };
+		92DC99091B9215EE00350407 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92DC990A1B9215EE00350407 /* Nimble.framework in Frameworks */,
 				9208B4641B8EBDE000C1631B /* <%= projectName %>.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -55,6 +58,7 @@
 		9208B44F1B8EBDE000C1631B = {
 			isa = PBXGroup;
 			children = (
+				92DC99091B9215EE00350407 /* Nimble.framework */,
 				9208B45B1B8EBDE000C1631B /* <%= projectName %> */,
 				9208B4671B8EBDE000C1631B /* UnitTests */,
 				9208B45A1B8EBDE000C1631B /* Products */,
@@ -128,6 +132,7 @@
 				9208B45F1B8EBDE000C1631B /* Sources */,
 				9208B4601B8EBDE000C1631B /* Frameworks */,
 				9208B4611B8EBDE000C1631B /* Resources */,
+				92DC990B1B92198300350407 /* Carthage Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -191,6 +196,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		92DC990B1B92198300350407 /* Carthage Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+			);
+			name = "Carthage Copy Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9208B4541B8EBDE000C1631B /* Sources */ = {
@@ -351,6 +374,10 @@
 		9208B4711B8EBDE000C1631B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = UnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "<%= organizationId %>.UnitTests";
@@ -361,6 +388,10 @@
 		9208B4721B8EBDE000C1631B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = UnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "<%= organizationId %>.UnitTests";

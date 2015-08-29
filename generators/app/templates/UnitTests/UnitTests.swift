@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Nimble
 
 @testable import <%= projectName %>
 
@@ -22,9 +23,9 @@ class UnitTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testInit() {
+        let p = <%= projectName %>()
+        expect(p.someProperty).to(equal("a string"))
     }
     
     func testPerformanceExample() {
