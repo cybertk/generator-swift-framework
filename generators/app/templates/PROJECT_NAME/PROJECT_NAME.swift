@@ -9,9 +9,15 @@ import UIKit
 
 public class <%= projectName %> {
     
-    // MARK: Properties
+    // MARK: Internal Properties
     
     var someProperty: String
+    
+    // MARK: APIs
+    
+    public func hello() -> String {
+        return someProperty
+    }
     
     // MARK: Initilizers
     

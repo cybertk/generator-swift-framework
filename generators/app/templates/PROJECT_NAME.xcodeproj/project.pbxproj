@@ -12,6 +12,11 @@
 		9208B4691B8EBDE000C1631B /* UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208B4681B8EBDE000C1631B /* UnitTests.swift */; };
 		92DC99081B8EF03100350407 /* <%= projectName %>.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC99071B8EF03100350407 /* <%= projectName %>.swift */; settings = {ASSET_TAGS = (); }; };
 		92DC990A1B9215EE00350407 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92DC99091B9215EE00350407 /* Nimble.framework */; };
+		92DC99291B93418500350407 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC99281B93418500350407 /* AppDelegate.swift */; };
+		92DC992B1B93418500350407 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC992A1B93418500350407 /* ViewController.swift */; };
+		92DC992E1B93418500350407 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92DC992C1B93418500350407 /* Main.storyboard */; };
+		92DC99301B93418500350407 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92DC992F1B93418500350407 /* Assets.xcassets */; };
+		92DC99331B93418500350407 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92DC99311B93418500350407 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +38,13 @@
 		9208B46A1B8EBDE000C1631B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92DC99071B8EF03100350407 /* <%= projectName %>.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = <%= projectName %>.swift; sourceTree = "<group>"; };
 		92DC99091B9215EE00350407 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		92DC99261B93418500350407 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		92DC99281B93418500350407 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		92DC992A1B93418500350407 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		92DC992D1B93418500350407 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		92DC992F1B93418500350407 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		92DC99321B93418500350407 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		92DC99341B93418500350407 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,15 +64,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		92DC99231B93418500350407 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		9208B44F1B8EBDE000C1631B = {
 			isa = PBXGroup;
 			children = (
-				92DC99091B9215EE00350407 /* Nimble.framework */,
 				9208B45B1B8EBDE000C1631B /* <%= projectName %> */,
+				92DC99271B93418500350407 /* Example */,
 				9208B4671B8EBDE000C1631B /* UnitTests */,
+				92DC99381B93437800350407 /* Frameworks */,
 				9208B45A1B8EBDE000C1631B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,6 +90,7 @@
 			children = (
 				9208B4591B8EBDE000C1631B /* <%= projectName %>.framework */,
 				9208B4631B8EBDE000C1631B /* UnitTests.xctest */,
+				92DC99261B93418500350407 /* Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,6 +112,27 @@
 				9208B46A1B8EBDE000C1631B /* Info.plist */,
 			);
 			path = UnitTests;
+			sourceTree = "<group>";
+		};
+		92DC99271B93418500350407 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				92DC99281B93418500350407 /* AppDelegate.swift */,
+				92DC992A1B93418500350407 /* ViewController.swift */,
+				92DC992C1B93418500350407 /* Main.storyboard */,
+				92DC992F1B93418500350407 /* Assets.xcassets */,
+				92DC99311B93418500350407 /* LaunchScreen.storyboard */,
+				92DC99341B93418500350407 /* Info.plist */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		92DC99381B93437800350407 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				92DC99091B9215EE00350407 /* Nimble.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +186,23 @@
 			productReference = 9208B4631B8EBDE000C1631B /* UnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		92DC99251B93418500350407 /* Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92DC99371B93418500350407 /* Build configuration list for PBXNativeTarget "Example" */;
+			buildPhases = (
+				92DC99221B93418500350407 /* Sources */,
+				92DC99231B93418500350407 /* Frameworks */,
+				92DC99241B93418500350407 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Example;
+			productName = Example;
+			productReference = 92DC99261B93418500350407 /* Example.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -160,6 +219,9 @@
 					9208B4621B8EBDE000C1631B = {
 						CreatedOnToolsVersion = 7.0;
 					};
+					92DC99251B93418500350407 = {
+						CreatedOnToolsVersion = 7.0;
+					};
 				};
 			};
 			buildConfigurationList = 9208B4531B8EBDE000C1631B /* Build configuration list for PBXProject "<%= projectName %>" */;
@@ -168,12 +230,14 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 9208B44F1B8EBDE000C1631B;
 			productRefGroup = 9208B45A1B8EBDE000C1631B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				92DC99251B93418500350407 /* Example */,
 				9208B4581B8EBDE000C1631B /* <%= projectName %> */,
 				9208B4621B8EBDE000C1631B /* UnitTests */,
 			);
@@ -192,6 +256,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92DC99241B93418500350407 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92DC99331B93418500350407 /* LaunchScreen.storyboard in Resources */,
+				92DC99301B93418500350407 /* Assets.xcassets in Resources */,
+				92DC992E1B93418500350407 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +306,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		92DC99221B93418500350407 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92DC992B1B93418500350407 /* ViewController.swift in Sources */,
+				92DC99291B93418500350407 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -241,6 +324,25 @@
 			targetProxy = 9208B4651B8EBDE000C1631B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		92DC992C1B93418500350407 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92DC992D1B93418500350407 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		92DC99311B93418500350407 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92DC99321B93418500350407 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9208B46B1B8EBDE000C1631B /* Debug */ = {
@@ -399,6 +501,28 @@
 			};
 			name = Release;
 		};
+		92DC99351B93418500350407 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Example/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "<%= organizationId %>.<%= projectName %>.Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		92DC99361B93418500350407 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Example/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "<%= organizationId %>.<%= projectName %>.Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -428,6 +552,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		92DC99371B93418500350407 /* Build configuration list for PBXNativeTarget "Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92DC99351B93418500350407 /* Debug */,
+				92DC99361B93418500350407 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
