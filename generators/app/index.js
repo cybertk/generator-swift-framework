@@ -7,6 +7,15 @@ var yaml = require('yamljs');
 var _ = require('underscore');
 
 module.exports = yeoman.generators.Base.extend({
+    constructor: function () {
+        yeoman.generators.Base.apply(this, arguments);
+
+        // This method adds support for a `--skip-install` flag
+        this.option('skip-install', {
+            desc: 'Do not install Carthage deps',
+        });
+    },
+
     prompting: {
         askFor: function () {
             var done = this.async();
@@ -134,7 +143,12 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     install: function () {
-        this.log('Carthage bootstraping');
-        this.spawnCommand('carthage', ['bootstrap']);
+        if (this.options['skip-install']) {
+            this.log('Please run `carthage bootstrap`');
+        }
+        else {
+            this.log('Carthage bootstraping');
+            this.spawnCommand('carthage', ['bootstrap']);
+        }
     }
 });
