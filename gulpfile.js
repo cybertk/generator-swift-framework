@@ -26,7 +26,7 @@ gulp.task('test-templates', ['templates'], function () {
 
 // Revert tempaltes to a noraml Xcode project, which can be opened via Xcode
 gulp.task('templates-revert', function () {
-    gulp.src('generators/app/templates/**')
+    gulp.src(['generators/app/templates/**', '!generators/app/templates/Carthage/**/*'])
         .pipe(replace(/<%= organizationId %>.<% projectName %>/g, 'ORGANIZATION-ID.PROJECT-NAME'))
         .pipe(replace(/<%= projectName %>/g, 'PROJECT_NAME'))
         .pipe(replace(/<%= organizationName %>/g, 'ORGANIZATION_NAME'))
@@ -36,7 +36,7 @@ gulp.task('templates-revert', function () {
 
 gulp.task('templates', function () {
     // # Xcode replace '_' to '-' for Bundle Identifier
-    gulp.src('generators/app/templates/**')
+    gulp.src(['generators/app/templates/**/*', '!generators/app/templates/Carthage/**/*'])
         .pipe(replace(/ORGANIZATION-ID.PROJECT-NAME/g, '<%= organizationId %>.<% projectName %>'))
         .pipe(replace(/PROJECT_NAME/g, '<%= projectName %>'))
         .pipe(replace(/ORGANIZATION_NAME/g, '<%= organizationName %>'))
