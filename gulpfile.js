@@ -4,6 +4,7 @@ var gulp = require('gulp');
 var replace = require('gulp-replace');
 var git = require('gulp-git');
 var mocha = require('gulp-mocha');
+var shell = require('gulp-shell');
 
 gulp.task('default', ['test']);
 
@@ -25,13 +26,14 @@ gulp.task('test-templates', ['templates'], function () {
 });
 
 // Revert tempaltes to a noraml Xcode project, which can be opened via Xcode
-gulp.task('templates-revert', function () {
+gulp.task('templates-open', function () {
     gulp.src(['generators/app/templates/**', '!generators/app/templates/Carthage/**/*'])
         .pipe(replace(/<%= organizationId %>.<%= projectName %>/g, 'ORGANIZATION-ID.PROJECT-NAME'))
         .pipe(replace(/<%= projectName %>/g, 'PROJECT_NAME'))
         .pipe(replace(/<%= organizationName %>/g, 'ORGANIZATION_NAME'))
         .pipe(replace(/<%= organizationId %>/g, 'ORGANIZATION-ID'))
-        .pipe(gulp.dest('generators/app/templates'));
+        .pipe(gulp.dest('generators/app/templates'))
+        .pipe(shell('open generators/app/templates/PROJECT_NAME.xcodeproj'));
 });
 
 gulp.task('templates', function () {

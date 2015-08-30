@@ -55,8 +55,20 @@ If you'd like to get to know Yeoman better and meet some of his friends, [Grunt]
     - Share scheme
 
 1. Update Placeholders
-    - `make template-update`
+    - `gulp templates`
 
+### Update Project Template
+
+Open via Xcode
+
+    gulp templates-open
+
+Modify with Xcode
+
+Close project and update templates with
+
+    gulp templates
+    
 ## License
 
 MIT
