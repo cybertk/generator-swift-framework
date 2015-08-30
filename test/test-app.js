@@ -24,7 +24,7 @@ describe('swift.framework:app', function () {
                     skipInstall: true
                 })
                 .withPrompts({
-                    projectName: 'example',
+                    projectName: 'F',
                     organizationName: 'example-org',
                     organizationId: 'org.example',
                     cocoapods: true,
@@ -37,10 +37,10 @@ describe('swift.framework:app', function () {
 
             // Xcode project
             var files = [
-                'example.xcodeproj/project.pbxproj',
-                'example.xcodeproj/project.xcworkspace/contents.xcworkspacedata',
+                'F.xcodeproj/project.pbxproj',
+                'F.xcodeproj/project.xcworkspace/contents.xcworkspacedata',
                 // Shared scheme
-                'example.xcodeproj/xcshareddata/xcschemes/example.xcscheme',
+                'F.xcodeproj/xcshareddata/xcschemes/F.xcscheme',
             ];
             assert.file(files);
             noFilesContent(files, pattern);
@@ -50,9 +50,9 @@ describe('swift.framework:app', function () {
 
             // Framework target
             var files = [
-                'example/Info.plist',
-                'example/example.h',
-                'example/example.swift',
+                'F/Info.plist',
+                'F/F.h',
+                'F/F.swift',
             ];
             assert.file(files);
             noFilesContent(files, pattern);
@@ -70,15 +70,28 @@ describe('swift.framework:app', function () {
 
         });
 
+        it('creates Example target', function () {
+
+            // UnitTests target
+            var files = [
+                'Example/Info.plist',
+                'Example/AppDelegate.swift',
+                'Example/ViewController.swift',
+            ];
+            assert.file(files);
+            noFilesContent(files, pattern);
+
+        });
+
         it('creates files', function () {
             assert.file(['.travis.yml', 'LICENSE', ]);
         });
 
         it('creates podsepc', function () {
-            assert.file('example.podspec');
+            assert.file('F.podspec');
             // repo url
-            assert.fileContent('example.podspec', 'https://github.com/gu/example.git');
-            assert.noFileContent('example.podspec', pattern);
+            assert.fileContent('F.podspec', 'https://github.com/gu/F.git');
+            assert.noFileContent('F.podspec', pattern);
         });
 
         it('creates Cartfile', function () {
