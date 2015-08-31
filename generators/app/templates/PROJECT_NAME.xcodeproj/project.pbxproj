@@ -17,6 +17,7 @@
 		92DC992E1B93418500350407 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92DC992C1B93418500350407 /* Main.storyboard */; };
 		92DC99301B93418500350407 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92DC992F1B93418500350407 /* Assets.xcassets */; };
 		92DC99331B93418500350407 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92DC99311B93418500350407 /* LaunchScreen.storyboard */; };
+		92DC993A1B93547600350407 /* <%= projectName %>.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9208B4591B8EBDE000C1631B /* <%= projectName %>.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92DC993A1B93547600350407 /* <%= projectName %>.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,6 +562,7 @@
 				92DC99361B93418500350407 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
