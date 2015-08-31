@@ -99,5 +99,10 @@ describe('swift.framework:app', function () {
             assert.file('Cartfile.private');
             assert.file('Cartfile.resolved');
         });
+
+        it('creates README', function () {
+            assert.file('README.md');
+            assert.noFileContent('README.md', pattern);
+        });
     });
 });
