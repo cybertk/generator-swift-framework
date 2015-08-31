@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+# The name of the keychain to create for iOS code signing.
+KEYCHAIN=ck-ios-build.keychain
+
+import_certs ()
+{
+    local password=cibuild
+    if security unlock-keychain -p "$password" "$KEYCHAIN"  >/dev/null 2>&1
+    then
+        echo "warnning: $KEYCHAIN already exist, force removed"
+        security delete-keychain "$KEYCHAIN"
+    fi
+
+    echo "*** Setting up code signing..."
+
+    # Create a temporary keychain for code signing.
+    security create-keychain -p "$password" "$KEYCHAIN"
+    security default-keychain -s "$KEYCHAIN"
+    security unlock-keychain -p "$password" "$KEYCHAIN"
+    security set-keychain-settings -t 3600 -l "$KEYCHAIN"
+
+    # Download the certificate for the Apple Worldwide Developer Relations
+    # Certificate Authority.
+    local certpath="$SCRIPT_DIR/apple_wwdr.cer"
+    curl 'https://developer.apple.com/certificationauthority/AppleWWDRCA.cer' > "$certpath"
+    security import "$certpath" -k "$KEYCHAIN" -T /usr/bin/codesign
+
+    [ -z "$KEY_PASSWORD" ] && echo "warning: KEY_PASSOWRD is not defined"
+
+    # Import certificates.
+    for c in $SCRIPT_DIR/certificates/*.p12;
+    do
+        [ "$c" = "$SCRIPT_DIR/certificates/*.p12" ] && break
+        security import "$c" -k "$KEYCHAIN" -P "$KEY_PASSWORD" -T /usr/bin/codesign
+    done
+}
+
+delete_keychain ()
+{
+    security delete-keychain "$KEYCHAIN"
+}
+
+main () {
+    if [ -z "$SCRIPT_DIR" ];
+    then
+        SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+    fi
+
+    case "$1" in
+        --import)
+            import_certs
+            ;;
+        --remove)
+            delete_keychain
+            ;;
+        *)
+            echo "Usage: cert <--import|--remove>"
+            ;;
+    esac
+}
+
+main "$@"
