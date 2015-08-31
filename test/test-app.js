@@ -21,7 +21,8 @@ describe('swift.framework:app', function () {
         before(function (done) {
             helpers.run(path.join(__dirname, '../generators/app'))
                 .withOptions({
-                    skipInstall: true
+                    skipInstall: true,
+                    openXcode: false,
                 })
                 .withPrompts({
                     projectName: 'F',

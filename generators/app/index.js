@@ -144,7 +144,7 @@ module.exports = yeoman.generators.Base.extend({
 
     install: {
         carthageBootstrap: function () {
-            if (this.options['skip-install']) {
+            if (this.options.skipInstall) {
                 this.log('Please run `carthage bootstrap`');
                 return;
             }
@@ -157,7 +157,9 @@ module.exports = yeoman.generators.Base.extend({
         },
 
         openXcode: function () {
-            this.spawnCommand('open', [this.destinationPath(this.projectName + '.xcodeproj')]);
+            if (this.options.openXcode !== false) {
+                this.spawnCommand('open', [this.destinationPath(this.projectName + '.xcodeproj')]);
+            }
         },
     }
 });
