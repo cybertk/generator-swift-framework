@@ -142,13 +142,22 @@ module.exports = yeoman.generators.Base.extend({
         },
     },
 
-    install: function () {
-        if (this.options['skip-install']) {
-            this.log('Please run `carthage bootstrap`');
-        }
-        else {
+    install: {
+        carthageBootstrap: function () {
+            if (this.options['skip-install']) {
+                this.log('Please run `carthage bootstrap`');
+                return;
+            }
+
+            var done = this.async();
+
             this.log('Carthage bootstraping');
-            this.spawnCommand('carthage', ['bootstrap']);
-        }
+            var child = this.spawnCommand('carthage', ['bootstrap']);
+            child.on('exit', done);
+        },
+
+        openXcode: function () {
+            this.spawnCommand('open', [this.destinationPath(this.projectName + '.xcodeproj')]);
+        },
     }
 });
