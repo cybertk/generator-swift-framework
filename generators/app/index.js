@@ -2,8 +2,16 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
-var yaml = require('yamljs');
 var _ = require('underscore');
+var fs = require('fs');
+var path = require('path');
+
+var resolvePath = function (string) {
+    if (string.substr(0, 1) === '~') {
+        string = process.env.HOME + string.substr(1)
+    }
+    return path.resolve(string)
+};
 
 module.exports = yeoman.generators.Base.extend({
     constructor: function () {
@@ -88,6 +96,67 @@ module.exports = yeoman.generators.Base.extend({
                 done();
             }.bind(this));
         },
+
+        askForTravis: function () {
+            var done = this.async();
+
+            var prompts = [{
+                type: 'confirm',
+                name: 'travis',
+                message: 'Would you like to enable Travis CI?',
+                default: true,
+            }];
+
+            this.prompt(prompts, function (props) {
+                this.travis = props.travis;
+                done();
+            }.bind(this));
+        },
+
+        askForCertPath: function () {
+            var done = this.async();
+            var travis = this.travis;
+
+            var prompts = [{
+                type: 'input',
+                name: 'certPath',
+                message: 'Development Certificate Path',
+                default: 'path/to/development.p12',
+                when: function () {
+                    return travis;
+                }
+            }, {
+                type: 'confirm',
+                name: 'askCertPathAgain',
+                message: 'The certificate you provide does not exist, specify again?',
+                default: true,
+                when: function (answers) {
+                    var done = this.async();
+
+                    if (!travis) {
+                        done(false);
+                        return;
+                    }
+
+                    answers.certPath = resolvePath(answers.certPath);
+                    fs.access(answers.certPath, fs.R_OK, function (err) {
+                        if (err) {
+                            answers.certPath = null;
+                        }
+                        done(answers.certPath === null);
+                    });
+                }
+            }];
+
+            this.prompt(prompts, function (props) {
+                if (props.askCertPathAgain) {
+                    return this.prompting.askForCertPath.call(this);
+                }
+
+                this.certPath = props.certPath;
+                done();
+            }.bind(this));
+        },
     },
 
     writing: {
@@ -106,9 +175,10 @@ module.exports = yeoman.generators.Base.extend({
                 'PROJECT_NAME.xcodeproj/project.pbxproj',
                 'PROJECT_NAME.xcodeproj/project.xcworkspace/contents.xcworkspacedata',
                 'PROJECT_NAME.xcodeproj/xcshareddata/xcschemes/PROJECT_NAME.xcscheme',
-                'README.md',
                 'UnitTests/Info.plist',
                 'UnitTests/UnitTests.swift',
+                'Makefile',
+                'README.md',
             ];
 
             files.forEach(function (entry) {
@@ -128,6 +198,8 @@ module.exports = yeoman.generators.Base.extend({
                 'script/README.md',
                 'Cartfile.private',
                 'Cartfile.resolved',
+                'Gemfile',
+                'Gemfile.lock',
             ];
             files.forEach(function (entry) {
                 this.fs.copy(this.templatePath(entry), this.destinationPath(entry));
@@ -135,20 +207,19 @@ module.exports = yeoman.generators.Base.extend({
         },
 
         travis: function () {
-            var script = {
-                language: 'objective-c',
-                script: [
-                    'xcodebuild test -sdk iphonesimulator -scheme ' + this.props.projectName,
-                ],
-            };
-            this.fs.write(this.destinationPath('.travis.yml'), yaml.stringify(script, 2));
+            if (!this.travis) {
+                return;
+            }
+            this.fs.copy(this.templatePath('.travis.yml'), this.destinationPath('.travis.yml'));
+            if (this.certPath) {
+                this.fs.copy(this.certPath, this.destinationPath('script/certificates/development.p12'));
+            }
         },
 
         cocoapods: function () {
             if (!this.cocoapods) {
                 return;
             }
-
             var podspec = this.destinationPath(this.projectName + '.podspec');
             this.fs.copyTpl(this.templatePath('PROJECT_NAME.podspec'), podspec, this.props);
         },
@@ -164,7 +235,7 @@ module.exports = yeoman.generators.Base.extend({
             var done = this.async();
 
             this.log('Carthage bootstraping');
-            var child = this.spawnCommand('carthage', ['bootstrap']);
+            var child = this.spawnCommand('make', ['bootstrap', 'deps']);
             child.on('exit', done);
         },
 

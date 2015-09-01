@@ -30,6 +30,8 @@ describe('swift.framework:app', function () {
                     organizationId: 'org.example',
                     cocoapods: true,
                     githubUser: 'gu',
+                    travis: true,
+                    certPath: path.join(__dirname, 'test-app.js'),
                 })
                 .on('end', done);
         });
@@ -75,8 +77,11 @@ describe('swift.framework:app', function () {
 
             // UnitTests target
             var files = [
-                'Example/Info.plist',
                 'Example/AppDelegate.swift',
+                'Example/Assets.xcassets/AppIcon.appiconset/Contents.json',
+                'Example/Base.lproj/LaunchScreen.storyboard',
+                'Example/Base.lproj/Main.storyboard',
+                'Example/Info.plist',
                 'Example/ViewController.swift',
             ];
             assert.file(files);
@@ -84,8 +89,17 @@ describe('swift.framework:app', function () {
 
         });
 
-        it('creates files', function () {
-            assert.file(['.travis.yml', 'LICENSE', ]);
+        it('creates project files', function () {
+            var files = [
+                '.gitignore',
+                'script/cert',
+                'script/README.md',
+                'Makefile',
+                'Gemfile',
+                'Gemfile.lock',
+            ];
+            assert.file(files);
+            assert.noFileContent('Makefile', pattern);
         });
 
         it('creates podsepc', function () {
@@ -103,6 +117,11 @@ describe('swift.framework:app', function () {
         it('creates README', function () {
             assert.file('README.md');
             assert.noFileContent('README.md', pattern);
+        });
+
+        it('creates Travis scripts', function () {
+            assert.file('.travis.yml');
+            assert.file('script/certificates/development.p12');
         });
     });
 });
