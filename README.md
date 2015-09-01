@@ -1,9 +1,27 @@
-# generator-swift-framework [![Build Status](https://secure.travis-ci.org/cybertk/generator-swift-framework.png?branch=master)](https://travis-ci.org/cybertk/generator-swift-framework)
+# generator-swift-framework
 
-> [Yeoman](http://yeoman.io) generator
-
+> Scaffolds out a Xcode framework project based on Swift
+[![Build Status](http://img.shields.io/travis/cybertk/generator-swift-framework.svg?style=flat)](https://travis-ci.org/cybertk/generator-swift-framework)
+[![Dependency Status](https://david-dm.org/cybertk/generator-swift-framework.svg)](https://david-dm.org/cybertk/generator-swift-framework)
+[![devDependency Status](https://david-dm.org/cybertk/generator-swift-framework/dev-status.svg)](https://david-dm.org/cybertk/generator-swift-framework#info=devDependencies)
 
 ## Getting Started
+
+To install generator-swift-framework from npm, run:
+
+```bash
+npm install -g generator-swift-framework
+```
+
+Then, initiate the generator via [Yeoman][]:
+
+```bash
+yo swift-framework
+```
+
+generator-swift-framework is actually a [Yeoman Generator](#Yeoman Generators).
+
+[Yeoman]: http://yeoman.io
 
 ### What is Yeoman?
 
@@ -22,24 +40,6 @@ npm install -g yo
 ### Yeoman Generators
 
 Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
-
-To install generator-swift-framework from npm, run:
-
-```bash
-npm install -g generator-swift-framework
-```
-
-Finally, initiate the generator:
-
-```bash
-yo swift.framework
-```
-
-### Getting To Know Yeoman
-
-Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
-
-If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
 
 
 ## Contributing
@@ -68,7 +68,7 @@ Modify with Xcode
 Close project and update templates with
 
     gulp templates
-    
+
 ## License
 
 MIT
