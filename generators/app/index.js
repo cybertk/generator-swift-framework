@@ -139,8 +139,8 @@ module.exports = yeoman.generators.Base.extend({
                     }
 
                     answers.certPath = resolvePath(answers.certPath);
-                    fs.access(answers.certPath, fs.R_OK, function (err) {
-                        if (err) {
+                    fs.stat(answers.certPath, function (err, stats) {
+                        if (err || !stats.isFile()) {
                             answers.certPath = null;
                         }
                         done(answers.certPath === null);
