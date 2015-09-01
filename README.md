@@ -20,7 +20,7 @@ Then, initiate the generator via [Yeoman][]:
 yo swift-framework
 ```
 
-generator-swift-framework is actually a [Yeoman Generator](#Yeoman Generators).
+generator-swift-framework is actually a [Yeoman Generator](#yeoman-generators).
 
 [Yeoman]: http://yeoman.io
 
