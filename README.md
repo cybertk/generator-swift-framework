@@ -42,6 +42,33 @@ Yeoman has a heart of gold. He's a person with feelings and opinions, but he's v
 If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
 
 
+## Contributing
+
+### Create new Project Template
+
+1. Create **Cocoa Touch Framework** target in Xcode
+    - Use `PROJECT_NAME` for **Product Name**
+    - Use `ORGANIZATION-NAME` for **Organization Name**
+    - Use `ORGANIZATION-ID` for **Organization Identifier**
+    - Do NOT select **Include Unit Tests**, see [reason]()
+1. Update Project Settings
+    - Share scheme
+
+1. Update Placeholders
+    - `gulp templates`
+
+### Update Project Template
+
+Open via Xcode
+
+    gulp templates-open
+
+Modify with Xcode
+
+Close project and update templates with
+
+    gulp templates
+    
 ## License
 
 MIT
