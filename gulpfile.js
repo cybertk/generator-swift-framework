@@ -15,7 +15,7 @@ gulp.task('test-unit', function () {
         .pipe(mocha());
 });
 
-gulp.task('test-templates', ['templates'], function () {
+gulp.task('test-templates', ['templatify'], function () {
     git.status({
         args: '--porcelain --untracked-files=no'
     }, function (err, stdout) {
@@ -26,7 +26,7 @@ gulp.task('test-templates', ['templates'], function () {
 });
 
 // Revert tempaltes to a noraml Xcode project, which can be opened via Xcode
-gulp.task('templates-open', function () {
+gulp.task('open-template-project', function () {
     gulp.src(['generators/app/templates/**', '!generators/app/templates/Carthage/**/*'])
         .pipe(replace(/<%= organizationId %>.<%= projectName %>/g, 'ORGANIZATION-ID.PROJECT-NAME'))
         .pipe(replace(/<%= projectName %>/g, 'PROJECT_NAME'))
@@ -36,7 +36,7 @@ gulp.task('templates-open', function () {
         .pipe(shell('open generators/app/templates/PROJECT_NAME.xcodeproj'));
 });
 
-gulp.task('templates', function () {
+gulp.task('templatify', function () {
     // # Xcode replace '_' to '-' for Bundle Identifier
     gulp.src(['generators/app/templates/**/*', '!generators/app/templates/Carthage/**/*'])
         .pipe(replace(/ORGANIZATION-ID.PROJECT-NAME/g, '<%= organizationId %>.<%= projectName %>'))
