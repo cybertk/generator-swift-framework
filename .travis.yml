@@ -1,7 +1,18 @@
 sudo: false
 language: node_js
 node_js:
-  - 'iojs'
-  - '0.12'
-  - '0.11'
-  - '0.10'
+- iojs
+- '0.12'
+- '0.11'
+- '0.10'
+notifications:
+  slack:
+    secure: rnwOVPsCeKJaU2J/qnovUkMyyAi/NBYh4fVlOK9PhtIgwbqG88xIK82QtlpSt/8I9WlOMCTCGvkXD3i+SFTY+S072iTqR+NA21D87Vu3gb2a2AfVdWTUqX9eJW4jKKhZ+e15siUcO4qIUnvYTI6kHap3RoGtcBpLFe132cHUpY0KLv/DVI9K++4Cem1W8syhbqY1WRvd6FrvGxt+WFnvjTJonIIEHNOCp7a2uGgaENaUvwJJZUoW3bqDqM3HMuNpsKHlr1sPn5/bcBAtkINWXkgXNThkXXRT8+tb3H83BhmM7YHI99qk62DJ3xLa4TVimQpDxBs3hD7bI2qhY3tb8q4Z25aDEk+hYWkkcER0sOp+GyYfOjOKn8iJmPFgcoBeH122bfERZ+ysUjSZtZtb1y8CI0S3g8odQzYpPgffj7+Ip1ZTJrbVXP7x14lQ/0FLoR56rGoZlqdG9O7gEWgyDpsNZJMpv+UrOKg875TIThmGbCNZ7AVF0/T7xkOD4oPDGFufl+2lmW5DYhYWYq9R27xSvfT+dzctWUkBBnI58wSk7p+r9we5QRBfswmDbc00yW3fvXl7ETblFKk4gsGTHMC5QvZQQayGmt4R+uu7rvXTHGFK0TEimWtbjZ9lmKQs/AmZzbUW59H7pEZukTxEwR14M7RePNz2VWUePIIMWlo=
+deploy:
+  provider: npm
+  email: kyan.ql.he@gmail.com
+  api_key:
+    secure: JH8DeOY/A0Fc5n0ctgl+2nPoXBjmguuNyiFzPIeiKktvtT0TImEYDexfSm1MSGqYGa64kiarfWFDCt+x6CokOBIW6G7Hddi7VgAsNffkXWD70O6y8UXU9j4KhbJVO+iCNdxrM8v7ndrseKcfZ2s1amX/4kxglfwcIckUD5f+3ShEX3iZMjdW3aaTkkOBis5viAxbujPC2OGuL9JAvXtJU0YT543OCFRgdXWUc5SO0qfiG2uTDFkYOOMsLY0EBiOOIzjCnXL2+/1hk6Cr1EYUouqWjdlbgw4ljaWB4Ft9u6t/0pPPdiIPeLpPg1yofO++LHJOaWE7eTrvbkeV1O8Pl76RrTTPCE7u8EtWZ6ITdi9l1b31BoyLKRawOhTlPi0lEe4roS0HuIjT1W4N7rIqG2yf2fZzLo8IE8xON6vQThgOHOJ4PlSJSFgXLWh+TB43OOIIzvfyJvL2kbS/U9l0Vygf4TPee0UvSd3Z0d+rCDsIWCPuV9yQwwl9hD8xnrBtdVrYbDY6wcwfMBoGMCfugaWJOxnaMvZL+TGVzFGc0UtviqlYqNc5YzOG6sVwS/+ccGa072nYgOPXUYuHxpDD/ZKarmNvRnP3NEcYZCXs1+hv8/m4mfBbd4tCs55CizOGiVhR+qTgEc2PZyIOUfjG00r0coFrIlmPQmlNuYvk1xQ=
+  on:
+    tags: true
+    repo: cybertk/generator-swift-framework
