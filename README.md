@@ -1,6 +1,7 @@
 # generator-swift-framework
 
 > Scaffolds out a Xcode framework project based on Swift
+
 [![Build Status](http://img.shields.io/travis/cybertk/generator-swift-framework.svg?style=flat)](https://travis-ci.org/cybertk/generator-swift-framework)
 [![Dependency Status](https://david-dm.org/cybertk/generator-swift-framework.svg)](https://david-dm.org/cybertk/generator-swift-framework)
 [![devDependency Status](https://david-dm.org/cybertk/generator-swift-framework/dev-status.svg)](https://david-dm.org/cybertk/generator-swift-framework#info=devDependencies)
@@ -41,34 +42,6 @@ npm install -g yo
 
 Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
 
-
-## Contributing
-
-### Create new Project Template
-
-1. Create **Cocoa Touch Framework** target in Xcode
-    - Use `PROJECT_NAME` for **Product Name**
-    - Use `ORGANIZATION-NAME` for **Organization Name**
-    - Use `ORGANIZATION-ID` for **Organization Identifier**
-    - Do NOT select **Include Unit Tests**, see [reason]()
-1. Update Project Settings
-    - Share scheme
-
-1. Update Placeholders
-    - `gulp templates`
-
-### Update Project Template
-
-Open via Xcode
-
-    gulp templates-open
-
-Modify with Xcode
-
-Close project and update templates with
-
-    gulp templates
-
 ## License
 
-MIT
+generator-swift-framework is available under the MIT license.
