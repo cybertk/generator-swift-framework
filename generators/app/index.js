@@ -178,6 +178,7 @@ module.exports = yeoman.generators.Base.extend({
                 'UnitTests/Info.plist',
                 'UnitTests/UnitTests.swift',
                 'Makefile',
+                'CONTRIBUTING.md',
                 'README.md',
             ];
 

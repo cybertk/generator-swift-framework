@@ -3,7 +3,6 @@
 var path = require('path');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
-var os = require('os');
 
 function noFilesContent(files, pattern) {
 
@@ -114,9 +113,11 @@ describe('swift.framework:app', function () {
             assert.file('Cartfile.resolved');
         });
 
-        it('creates README', function () {
+        it('creates docs', function () {
             assert.file('README.md');
+            assert.file('CONTRIBUTING.md');
             assert.noFileContent('README.md', pattern);
+            assert.noFileContent('CONTRIBUTING.md', pattern);
         });
 
         it('creates Travis scripts', function () {
