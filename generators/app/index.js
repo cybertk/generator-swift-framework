@@ -78,16 +78,12 @@ module.exports = yeoman.generators.Base.extend({
 
         askForGitHub: function () {
             var done = this.async();
-            var cocoapods = this.cocoapods;
 
             var prompts = [{
                 type: 'input',
                 name: 'githubUser',
                 message: 'Would you mind telling me your username on GitHub?',
                 store: true,
-                when: function () {
-                    return cocoapods;
-                }
             }];
 
             this.prompt(prompts, function (props) {
