@@ -1,7 +1,7 @@
 {
     "name": "generator-swift-framework",
     "version": "0.1.0",
-    "description": "Scaffolds out a Xcode framework project based on Swift",
+    "description": "Scaffolds out a Xcode Embedded Framework project with Swift 2.0",
     "license": "MIT",
     "main": "app/index.js",
     "repository": "cybertk/generator-swift-framework",

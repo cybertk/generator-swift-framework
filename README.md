@@ -1,10 +1,26 @@
 # generator-swift-framework
 
-> Scaffolds out a Xcode framework project based on Swift
+> Scaffolds out a Xcode Embedded Framework project with Swift 2.0
 
 [![Build Status](http://img.shields.io/travis/cybertk/generator-swift-framework.svg?style=flat)](https://travis-ci.org/cybertk/generator-swift-framework)
 [![Dependency Status](https://david-dm.org/cybertk/generator-swift-framework.svg)](https://david-dm.org/cybertk/generator-swift-framework)
 [![devDependency Status](https://david-dm.org/cybertk/generator-swift-framework/dev-status.svg)](https://david-dm.org/cybertk/generator-swift-framework#info=devDependencies)
+
+generator-swift-framework is used to create a Xcode [Embedded Framework](https://developer.apple.com/library/ios/documentation/General/Conceptual/ExtensibilityPG/ExtensionScenarios.html) project with the following features:
+
+- Embedded Framework template
+- Unit Test template based on [Nimble](https://github.com/quick/nimble)
+- Example App template
+- Swift 2.0 syntax
+- Manage dependencies with [Carthage][]
+- Support distribution via [CocoaPods](http://cocoapods.com) and [Carthage][]
+- MIT License
+- Test suites to cover distributions and fundamentals with `make test`
+- [Scripts](https://github.com/cybertk/ios-build-scripts) for working on CLI and CI integration
+- Optional Travis CI integration
+- Optional Apple Development Certification provisioning
+
+[Carthage]: https://github.com/carthage/carthage
 
 ## Getting Started
 
