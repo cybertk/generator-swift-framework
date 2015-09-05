@@ -194,7 +194,6 @@ module.exports = yeoman.generators.Base.extend({
 
         projectFiles: function () {
             var files = [
-                '.gitignore',
                 'script/cert',
                 'script/README.md',
                 'Cartfile.private',
@@ -205,6 +204,11 @@ module.exports = yeoman.generators.Base.extend({
             files.forEach(function (entry) {
                 this.fs.copy(this.templatePath(entry), this.destinationPath(entry));
             }.bind(this));
+        },
+
+        gitignore: function () {
+            // Cannot use .gitignore in Template Project, See https://github.com/cybertk/generator-swift-framework/issues/6
+            this.fs.copy(this.templatePath('gitignore'), this.destinationPath('.gitignore'));
         },
 
         travis: function () {
