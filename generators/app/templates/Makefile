@@ -14,11 +14,15 @@ test-cocoapods:
 
 bootstrap:
 	bundle install
-	# Cannot brew install carthage on Travis-CI
-	# brew update
-	# brew install carthage
+
+   # Detect Travis CI, see http://docs.travis-ci.com/user/environment-variables/
+ifeq ($(TRAVIS_CI),true)
+   # Cannot brew install carthage on Travis-CI
 	curl -OL https://github.com/Carthage/Carthage/releases/download/0.8/Carthage.pkg
 	sudo /usr/sbin/installer -pkg Carthage.pkg -target /
+else
+	brew install carthage
+endif
 
 deps:
 	carthage bootstrap --verbose | xcpretty
