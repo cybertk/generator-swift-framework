@@ -118,6 +118,7 @@ module.exports = yeoman.generators.Base.extend({
                 name: 'certPath',
                 message: 'Development Certificate Path',
                 default: 'path/to/development.p12',
+                store: true,
                 when: function () {
                     return travis;
                 }
