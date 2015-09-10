@@ -35,7 +35,7 @@ pod "<%= projectName %>"
 
 ## Author
 
-<%= githubUser %>
+[@<%= githubUser %>](https://github.com/<%= githubUser %>)
 
 ## License
 
