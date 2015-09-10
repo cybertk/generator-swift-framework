@@ -25,7 +25,7 @@ else
 endif
 
 deps:
-	carthage bootstrap --verbose | xcpretty
+	carthage bootstrap --use-ssh --verbose | xcpretty
 
 release:
 	zip -r -9 $(project).framework.zip Carthage/Build/iOS/*.framework
