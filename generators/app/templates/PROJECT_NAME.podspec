@@ -1,13 +1,9 @@
 Pod::Spec.new do |s|
   s.name             = "<%= projectName %>"
   s.version          = "0.1.0"
-  s.summary          = "A short description"
-  s.description      = <<-DESC
-                       a longer description
-                       DESC
-
-  s.homepage         = "https://github.com/<%= githubUser %>/<%= projectName %>"
   s.license          = "MIT"
+  s.summary          = "A short description"
+  s.homepage         = "https://github.com/<%= githubUser %>/<%= projectName %>"
   s.author           = "<%= projectName %> Contributors"
   s.source           = { :git => "https://github.com/<%= githubUser %>/<%= projectName %>.git", :tag => "v#{s.version}" }
 
