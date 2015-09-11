@@ -1,4 +1,5 @@
 Pod::Spec.new do |s|
+
   s.name             = "<%= projectName %>"
   s.version          = "0.1.0"
   s.license          = "MIT"
@@ -10,5 +11,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "8.0"
   s.requires_arc = true
 
-  s.source_files = "<%= projectName %>/**/*.{swift,h,m,mm}"
+  s.source_files = "<%= projectName %>/**/*.swift"
 end
