@@ -30,6 +30,12 @@ To install generator-swift-framework from npm, run:
 npm install -g generator-swift-framework
 ```
 
+Make a new directory for the framework, and cd into it:
+
+```bash
+mkdir my-new-framework && cd $_
+```
+
 Then, initiate the generator via [Yeoman][]:
 
 ```bash
