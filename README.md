@@ -24,7 +24,7 @@ generator-swift-framework is used to create a Xcode [Embedded Framework](https:/
 
 ## Getting Started
 
-To install generator-swift-framework from npm, run:
+To install the latest stable version of generator-swift-framework from npm, run:
 
 ```bash
 npm install -g generator-swift-framework
@@ -63,6 +63,14 @@ npm install -g yo
 ### Yeoman Generators
 
 Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
+
+## Contributions
+
+To install the development branch
+
+```
+npm install -g github:cybertk/generator-swift-framework#branch/name
+```
 
 ## License
 
