@@ -72,6 +72,8 @@ To install the development branch
 npm install -g github:cybertk/generator-swift-framework#branch/name
 ```
 
+See [Contribution Guide](CONTRIBUTION.md) for more details.
+
 ## License
 
 generator-swift-framework is available under the MIT license.
