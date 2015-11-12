@@ -19,13 +19,13 @@ npm install
 ```
 ## Update Templates
 
-If you want to update existing Xcode Template Project, you can open it by running the following command from the cloned directory:
+If you want to update existing Xcode Template Project, you can open it in Xcode by running the following command from the cloned directory:
 
 ```bash
 gulp open-template-project
 ```
 
-Then, you can changed everything you want, the Template Project is just a normal Xcode project. It can be built, tested.
+Then, you can changed everything you want, the Template Project is just a normal Xcode project. It can be built, tested and anything available in Xcode.
 
 When you finished your changes to the Template Project, you need **templatify** the Template Project by closing the Xcode and then run the following command:
 
