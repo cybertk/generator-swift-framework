@@ -3,6 +3,7 @@
 > Scaffolds out a Xcode Embedded Framework project with Swift 2.0
 
 [![Build Status](http://img.shields.io/travis/cybertk/generator-swift-framework.svg?style=flat)](https://travis-ci.org/cybertk/generator-swift-framework)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![Dependency Status](https://david-dm.org/cybertk/generator-swift-framework.svg)](https://david-dm.org/cybertk/generator-swift-framework)
 [![devDependency Status](https://david-dm.org/cybertk/generator-swift-framework/dev-status.svg)](https://david-dm.org/cybertk/generator-swift-framework#info=devDependencies)
 

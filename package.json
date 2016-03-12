@@ -1,40 +1,41 @@
 {
-    "name": "generator-swift-framework",
-    "version": "0.1.0",
-    "description": "Scaffolds out a Xcode Embedded Framework project with Swift 2.0",
-    "license": "MIT",
-    "main": "app/index.js",
-    "repository": "cybertk/generator-swift-framework",
-    "author": {
-        "name": "",
-        "email": "",
-        "url": "https://github.com/cybertk"
-    },
-    "scripts": {
-        "test": "gulp test"
-    },
-    "files": [
-        "generators"
-    ],
-    "keywords": [
-        "yeoman-generator",
-        "xcode",
-        "framework",
-        "swift",
-        "ios"
-    ],
-    "dependencies": {
-        "chalk": "^1.1.1",
-        "underscore": "^1.8.3",
-        "yamljs": "^0.2.3",
-        "yeoman-generator": "^0.20.3",
-        "yosay": "^1.0.5"
-    },
-    "devDependencies": {
-        "gulp": "^3.9.0",
-        "gulp-git": "^1.2.4",
-        "gulp-mocha": "^2.1.3",
-        "gulp-replace": "^0.5.4",
-        "gulp-shell": "^0.4.3"
-    }
+  "name": "generator-swift-framework",
+  "version": "0.1.0",
+  "description": "Scaffolds out a Xcode Embedded Framework project with Swift 2.0",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "cybertk/generator-swift-framework",
+  "author": {
+    "name": "",
+    "email": "",
+    "url": "https://github.com/cybertk"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "files": [
+    "generators"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "xcode",
+    "framework",
+    "swift",
+    "ios"
+  ],
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "underscore": "^1.8.3",
+    "yamljs": "^0.2.3",
+    "yeoman-generator": "^0.20.3",
+    "yosay": "^1.0.5"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-git": "^1.2.4",
+    "gulp-mocha": "^2.1.3",
+    "gulp-replace": "^0.5.4",
+    "gulp-shell": "^0.4.3",
+    "gulp-standard": "^6.0.5"
+  }
 }
