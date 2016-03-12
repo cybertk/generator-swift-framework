@@ -5,10 +5,17 @@ var replace = require('gulp-replace');
 var git = require('gulp-git');
 var mocha = require('gulp-mocha');
 var shell = require('gulp-shell');
+var standard = require('gulp-standard');
 
 gulp.task('default', ['test']);
 
-gulp.task('test', ['test-unit', 'test-templates']);
+gulp.task('test', ['test-lint', 'test-unit', 'test-templates']);
+
+gulp.task('test-lint', function () {
+    return gulp.src(['gulpfile.js', 'generators/**/*.js'])
+        .pipe(standard())
+        .pipe(standard.reporter('default', { breakOnError: true }))
+});
 
 gulp.task('test-unit', function () {
     gulp.src('test/*.js')
