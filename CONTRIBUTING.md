@@ -22,7 +22,7 @@ npm install
 If you want to update existing Xcode Template Project, you can open it in Xcode directly or run the following command
 
 ```bash
-gulp open-template-project
+npm run open-template-project
 ```
 
 Then, you can changed everything you want, the Template Project is just a normal Xcode project. It can be built, tested and anything available in Xcode.
