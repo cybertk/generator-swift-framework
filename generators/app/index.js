@@ -180,8 +180,20 @@ module.exports = yeoman.generators.Base.extend({
       ]
 
       files.forEach(function (entry) {
-        var source = entry.replace(/PROJECT_NAME/g, this.projectName)
+        var source = entry
+
+        // Handle file name
+        source = source.replace(/PROJECT_NAME/g, this.projectName)
+
         this.fs.copyTpl(this.templatePath(entry), this.destinationPath(source), this.props)
+
+        // Handle .xcodeproj
+        var data = this.fs.read(this.destinationPath(source), 'utf8')
+        data = data.replace(/ORGANIZATION-ID.PROJECT-NAME/g, this.organizationId + '.' + this.projectName)
+        data = data.replace(/PROJECT_NAME/g, this.projectName)
+        data = data.replace(/ORGANIZATION_NAME/g, this.organizationName)
+        data = data.replace(/ORGANIZATION-ID/g, this.organizationId)
+        this.fs.write(this.destinationPath(source), data, 'utf8')
       }.bind(this))
     },
 

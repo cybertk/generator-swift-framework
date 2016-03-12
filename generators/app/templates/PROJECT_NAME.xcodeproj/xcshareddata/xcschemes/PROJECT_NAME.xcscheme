@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9208B4581B8EBDE000C1631B"
-               BuildableName = "<%= projectName %>.framework"
-               BlueprintName = "<%= projectName %>"
-               ReferencedContainer = "container:<%= projectName %>.xcodeproj">
+               BuildableName = "PROJECT_NAME.framework"
+               BlueprintName = "PROJECT_NAME"
+               ReferencedContainer = "container:PROJECT_NAME.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,7 +36,7 @@
                BlueprintIdentifier = "9208B4621B8EBDE000C1631B"
                BuildableName = "UnitTests.xctest"
                BlueprintName = "UnitTests"
-               ReferencedContainer = "container:<%= projectName %>.xcodeproj">
+               ReferencedContainer = "container:PROJECT_NAME.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9208B4581B8EBDE000C1631B"
-            BuildableName = "<%= projectName %>.framework"
-            BlueprintName = "<%= projectName %>"
-            ReferencedContainer = "container:<%= projectName %>.xcodeproj">
+            BuildableName = "PROJECT_NAME.framework"
+            BlueprintName = "PROJECT_NAME"
+            ReferencedContainer = "container:PROJECT_NAME.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9208B4581B8EBDE000C1631B"
-            BuildableName = "<%= projectName %>.framework"
-            BlueprintName = "<%= projectName %>"
-            ReferencedContainer = "container:<%= projectName %>.xcodeproj">
+            BuildableName = "PROJECT_NAME.framework"
+            BlueprintName = "PROJECT_NAME"
+            ReferencedContainer = "container:PROJECT_NAME.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -84,9 +84,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9208B4581B8EBDE000C1631B"
-            BuildableName = "<%= projectName %>.framework"
-            BlueprintName = "<%= projectName %>"
-            ReferencedContainer = "container:<%= projectName %>.xcodeproj">
+            BuildableName = "PROJECT_NAME.framework"
+            BlueprintName = "PROJECT_NAME"
+            ReferencedContainer = "container:PROJECT_NAME.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
