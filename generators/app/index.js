@@ -9,7 +9,10 @@ module.exports = yeoman.generators.Base.extend({
     yeoman.generators.Base.apply(this, arguments)
 
     // This method adds support for a `--skip-install` flag
-    this.option('skip-install', {
+    this.option('skipInstall', {
+      type: Boolean,
+      required: false,
+      defaults: false,
       desc: 'Do not install Carthage deps'
     })
   },
@@ -166,7 +169,11 @@ module.exports = yeoman.generators.Base.extend({
       local: require.resolve('../license')
     })
 
-    this.composeWith('swift-framework:carthage', {}, {
+    this.composeWith('swift-framework:carthage', {
+      options: {
+        skipInstall: this.options.skipInstall
+      }
+    }, {
       local: require.resolve('../carthage')
     })
 
@@ -198,20 +205,7 @@ module.exports = yeoman.generators.Base.extend({
     }
   },
 
-  install: {
-    carthageBootstrap: function () {
-      if (this.options.skipInstall) {
-        this.log('Please run `carthage bootstrap`')
-        return
-      }
-
-      var done = this.async()
-
-      this.log('Carthage bootstraping')
-      var child = this.spawnCommand('make', ['bootstrap', 'deps'])
-      child.on('exit', done)
-    },
-
+  end: {
     openXcode: function () {
       if (this.options.openXcode !== false) {
         this.spawnCommand('open', [this.destinationPath(this.projectName + '.xcodeproj')])

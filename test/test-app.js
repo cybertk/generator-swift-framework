@@ -30,7 +30,7 @@ describe('swift.framework:app', function () {
           cocoapods: true,
           githubUser: 'gu',
           travis: true,
-          certPath: path.join(__dirname, 'test-app.js')
+          mobileprovision: false
         })
         .on('end', done)
     })
@@ -109,7 +109,6 @@ describe('swift.framework:app', function () {
 
     it('creates Travis scripts', function () {
       assert.file('.travis.yml')
-      assert.file('script/certificates/development.p12')
     })
   })
 })
