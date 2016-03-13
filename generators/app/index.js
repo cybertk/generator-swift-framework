@@ -136,14 +136,6 @@ module.exports = yeoman.generators.Base.extend({
     gitignore: function () {
       // Cannot use .gitignore in Template Project, See https://github.com/cybertk/generator-swift-framework/issues/6
       this.fs.copy(this.templatePath('gitignore'), this.destinationPath('.gitignore'))
-    },
-
-    cocoapods: function () {
-      if (!this.cocoapods) {
-        return
-      }
-      var podspec = this.destinationPath(this.projectName + '.podspec')
-      this.fs.copyTpl(this.templatePath('PROJECT_NAME.podspec'), podspec, this.props)
     }
   },
 
@@ -204,6 +196,17 @@ module.exports = yeoman.generators.Base.extend({
     if (this.mobileprovision) {
       this.composeWith('swift-framework:mobileprovision', {}, {
         local: require.resolve('../mobileprovision')
+      })
+    }
+
+    if (this.cocoapods) {
+      this.composeWith('swift-framework:cocoapods', {
+        options: {
+          projectName: this.props.projectName,
+          githubUser: this.props.githubUser
+        }
+      }, {
+        local: require.resolve('../cocoapods')
       })
     }
   },
