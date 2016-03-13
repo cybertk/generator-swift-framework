@@ -131,11 +131,6 @@ module.exports = yeoman.generators.Base.extend({
       files.forEach(function (entry) {
         this.fs.copyTpl(this.templatePath(entry), this.destinationPath(entry), this.props)
       }.bind(this))
-    },
-
-    gitignore: function () {
-      // Cannot use .gitignore in Template Project, See https://github.com/cybertk/generator-swift-framework/issues/6
-      this.fs.copy(this.templatePath('gitignore'), this.destinationPath('.gitignore'))
     }
   },
 
@@ -185,6 +180,10 @@ module.exports = yeoman.generators.Base.extend({
 
     this.composeWith('swift-framework:carthage', {}, {
       local: require.resolve('../carthage')
+    })
+
+    this.composeWith('swift-framework:gitignore', {}, {
+      local: require.resolve('../gitignore')
     })
 
     if (this.travis) {
