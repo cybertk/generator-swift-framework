@@ -108,9 +108,7 @@ describe('swift.framework:app', function () {
     })
 
     it('creates docs', function () {
-      assert.file('README.md')
       assert.file('CONTRIBUTING.md')
-      assert.noFileContent('README.md', pattern)
       assert.noFileContent('CONTRIBUTING.md', pattern)
     })
 

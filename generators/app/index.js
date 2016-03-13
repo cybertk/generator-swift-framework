@@ -164,7 +164,6 @@ module.exports = yeoman.generators.Base.extend({
     projectFiles: function () {
       var files = [
         'Makefile',
-        'README.md',
         'CONTRIBUTING.md',
         'script/cert',
         'script/README.md',
@@ -174,7 +173,7 @@ module.exports = yeoman.generators.Base.extend({
         'Gemfile.lock'
       ]
       files.forEach(function (entry) {
-        this.fs.copy(this.templatePath(entry), this.destinationPath(entry))
+        this.fs.copyTpl(this.templatePath(entry), this.destinationPath(entry), this.props)
       }.bind(this))
     },
 
@@ -211,6 +210,15 @@ module.exports = yeoman.generators.Base.extend({
       }
     }, {
       local: require.resolve('../xcode')
+    })
+
+    this.composeWith('swift-framework:readme', {
+      options: {
+        projectName: this.props.projectName,
+        githubUser: this.props.githubUser
+      }
+    }, {
+      local: require.resolve('../readme')
     })
   },
 
