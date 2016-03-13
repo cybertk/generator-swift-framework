@@ -27,5 +27,10 @@ describe('swift.framework:script', function () {
       assert.file('script/README.md')
       assert.file('script/cert')
     })
+
+    it('creates Gemfile', function () {
+      assert.file('Gemfile')
+      assert.file('Gemfile.lock')
+    })
   })
 })

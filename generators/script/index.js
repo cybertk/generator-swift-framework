@@ -16,5 +16,6 @@ module.exports = yeoman.generators.Base.extend({
   initializing: function () {
     this.fs.copyTpl(this.templatePath('Makefile'), this.destinationPath('Makefile'), this.options)
     this.fs.copy(this.templatePath('script/*'), this.destinationPath('script/'))
+    this.fs.copy(this.templatePath('Gemfile*'), this.destinationPath('./'))
   }
 })

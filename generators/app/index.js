@@ -122,18 +122,6 @@ module.exports = yeoman.generators.Base.extend({
     }
   },
 
-  writing: {
-    projectFiles: function () {
-      var files = [
-        'Gemfile',
-        'Gemfile.lock'
-      ]
-      files.forEach(function (entry) {
-        this.fs.copyTpl(this.templatePath(entry), this.destinationPath(entry), this.props)
-      }.bind(this))
-    }
-  },
-
   default: function () {
     this.composeWith('swift-framework:xcode', {
       options: {
