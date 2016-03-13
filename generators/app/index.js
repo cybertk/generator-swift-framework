@@ -172,16 +172,6 @@ module.exports = yeoman.generators.Base.extend({
       this.fs.copy(this.templatePath('gitignore'), this.destinationPath('.gitignore'))
     },
 
-    travis: function () {
-      if (!this.travis) {
-        return
-      }
-      this.fs.copy(this.templatePath('.travis.yml'), this.destinationPath('.travis.yml'))
-      if (this.certPath) {
-        this.fs.copy(this.certPath, this.destinationPath('script/certificates/development.p12'))
-      }
-    },
-
     cocoapods: function () {
       if (!this.cocoapods) {
         return
@@ -238,6 +228,12 @@ module.exports = yeoman.generators.Base.extend({
     this.composeWith('swift-framework:carthage', {}, {
       local: require.resolve('../carthage')
     })
+
+    if (this.travis) {
+      this.composeWith('swift-framework:travis', {}, {
+        local: require.resolve('../travis')
+      })
+    }
   },
 
   install: {
