@@ -163,9 +163,6 @@ module.exports = yeoman.generators.Base.extend({
 
     projectFiles: function () {
       var files = [
-        'Makefile',
-        'script/cert',
-        'script/README.md',
         'Cartfile.private',
         'Cartfile.resolved',
         'Gemfile',
@@ -226,6 +223,14 @@ module.exports = yeoman.generators.Base.extend({
       }
     }, {
       local: require.resolve('../contributing')
+    })
+
+    this.composeWith('swift-framework:script', {
+      options: {
+        projectName: this.props.projectName
+      }
+    }, {
+      local: require.resolve('../script')
     })
   },
 
