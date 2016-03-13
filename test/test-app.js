@@ -107,11 +107,6 @@ describe('swift.framework:app', function () {
       assert.file('Cartfile.resolved')
     })
 
-    it('creates docs', function () {
-      assert.file('CONTRIBUTING.md')
-      assert.noFileContent('CONTRIBUTING.md', pattern)
-    })
-
     it('creates Travis scripts', function () {
       assert.file('.travis.yml')
       assert.file('script/certificates/development.p12')
