@@ -159,8 +159,6 @@ module.exports = yeoman.generators.Base.extend({
   writing: {
     projectFiles: function () {
       var files = [
-        'Cartfile.private',
-        'Cartfile.resolved',
         'Gemfile',
         'Gemfile.lock'
       ]
@@ -235,6 +233,10 @@ module.exports = yeoman.generators.Base.extend({
       }
     }, {
       local: require.resolve('../license')
+    })
+
+    this.composeWith('swift-framework:carthage', {}, {
+      local: require.resolve('../carthage')
     })
   },
 
