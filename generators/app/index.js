@@ -157,10 +157,6 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   writing: {
-    license: function () {
-      this.fs.copyTpl(this.templatePath('LICENSE'), this.destinationPath('LICENSE'), this.props)
-    },
-
     projectFiles: function () {
       var files = [
         'Cartfile.private',
@@ -231,6 +227,14 @@ module.exports = yeoman.generators.Base.extend({
       }
     }, {
       local: require.resolve('../script')
+    })
+
+    this.composeWith('swift-framework:license', {
+      options: {
+        organizationName: this.props.organizationName
+      }
+    }, {
+      local: require.resolve('../license')
     })
   },
 
