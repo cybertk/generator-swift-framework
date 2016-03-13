@@ -3,15 +3,6 @@ var yeoman = require('yeoman-generator')
 var chalk = require('chalk')
 var yosay = require('yosay')
 var _ = require('underscore')
-var fs = require('fs')
-var path = require('path')
-
-var resolvePath = function (string) {
-  if (string.substr(0, 1) === '~') {
-    string = process.env.HOME + string.substr(1)
-  }
-  return path.resolve(string)
-}
 
 module.exports = yeoman.generators.Base.extend({
   constructor: function () {
@@ -114,43 +105,18 @@ module.exports = yeoman.generators.Base.extend({
       var travis = this.travis
 
       var prompts = [{
-        type: 'input',
-        name: 'certPath',
-        message: 'Development Certificate Path',
-        default: 'path/to/development.p12',
+        type: 'confirm',
+        name: 'mobileprovision',
+        message: 'Would you like to provision Development Certificate',
+        default: true,
         store: true,
         when: function () {
           return travis
         }
-      }, {
-        type: 'confirm',
-        name: 'askCertPathAgain',
-        message: 'The certificate you provide does not exist, specify again?',
-        default: true,
-        when: function (answers) {
-          var done = this.async()
-
-          if (!travis) {
-            done(false)
-            return
-          }
-
-          answers.certPath = resolvePath(answers.certPath)
-          fs.stat(answers.certPath, function (err, stats) {
-            if (err || !stats.isFile()) {
-              answers.certPath = null
-            }
-            done(answers.certPath === null)
-          })
-        }
       }]
 
       this.prompt(prompts, function (props) {
-        if (props.askCertPathAgain) {
-          return this.prompting.askForCertPath.call(this)
-        }
-
-        this.certPath = props.certPath
+        this.mobileprovision = props.mobileprovision
         done()
       }.bind(this))
     }
@@ -232,6 +198,12 @@ module.exports = yeoman.generators.Base.extend({
     if (this.travis) {
       this.composeWith('swift-framework:travis', {}, {
         local: require.resolve('../travis')
+      })
+    }
+
+    if (this.mobileprovision) {
+      this.composeWith('swift-framework:mobileprovision', {}, {
+        local: require.resolve('../mobileprovision')
       })
     }
   },
