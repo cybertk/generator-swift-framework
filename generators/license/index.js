@@ -8,7 +8,6 @@ module.exports = yeoman.generators.Base.extend({
     this.option('organizationName', {
       type: String,
       required: true,
-      defaults: 'MyOrg',
       desc: 'Organization name'
     })
   },

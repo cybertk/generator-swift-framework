@@ -5,28 +5,20 @@ module.exports = yeoman.generators.Base.extend({
   constructor: function () {
     yeoman.generators.Base.apply(this, arguments)
 
-    // This method adds support for a `--skip-install` flag
-    this.option('skip-install', {
-      desc: 'Do not install Carthage deps'
-    })
-
     this.option('organizationName', {
       type: String,
-      required: false,
-      defaults: '',
-      desc: 'Relocate the location of the generated files.'
+      required: true,
+      desc: 'Organization name'
     })
     this.option('organizationId', {
       type: String,
-      required: false,
-      defaults: '',
-      desc: 'Relocate the location of the generated files.'
+      required: true,
+      desc: 'Organization Id'
     })
     this.option('projectName', {
       type: String,
-      required: false,
-      defaults: '',
-      desc: 'Relocate the location of the generated files.'
+      required: true,
+      desc: 'Project Name'
     })
   },
 
