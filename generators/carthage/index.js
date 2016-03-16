@@ -27,7 +27,7 @@ module.exports = yeoman.generators.Base.extend({
       var done = this.async()
 
       this.log('Carthage bootstraping')
-      var child = this.spawnCommand('carthage', 'bootstrap')
+      var child = this.spawnCommand('carthage', ['bootstrap'])
       child.on('exit', done)
     }
   }
