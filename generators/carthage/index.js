@@ -1,5 +1,5 @@
 'use strict'
-var generators = require('yeoman-generator')
+const generators = require('yeoman-generator')
 
 module.exports = generators.Base.extend({
   constructor: function () {
@@ -24,10 +24,10 @@ module.exports = generators.Base.extend({
         return
       }
 
-      var done = this.async()
-
       this.log('Carthage bootstraping')
-      var child = this.spawnCommand('carthage', ['bootstrap'])
+
+      let done = this.async()
+      let child = this.spawnCommand('carthage', ['bootstrap'])
       child.on('exit', done)
     }
   }

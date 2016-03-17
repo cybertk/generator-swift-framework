@@ -1,5 +1,5 @@
 'use strict'
-var generators = require('yeoman-generator')
+const generators = require('yeoman-generator')
 
 module.exports = generators.Base.extend({
   constructor: function () {
@@ -18,7 +18,7 @@ module.exports = generators.Base.extend({
   },
 
   initializing: function () {
-    var podspec = this.destinationPath(this.options.projectName + '.podspec')
+    let podspec = this.destinationPath(`${this.options.projectName}.podspec`)
     this.fs.copyTpl(this.templatePath('PROJECT_NAME.podspec'), podspec, this.options)
   }
 })

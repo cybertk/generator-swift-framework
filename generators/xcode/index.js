@@ -1,6 +1,6 @@
 'use strict'
-var generators = require('yeoman-generator')
-var glob = require('glob')
+const generators = require('yeoman-generator')
+const glob = require('glob')
 
 module.exports = generators.Base.extend({
   constructor: function () {
@@ -25,13 +25,13 @@ module.exports = generators.Base.extend({
 
   writing: {
     xcode: function () {
-      var files = glob.sync('**/*', {
+      let files = glob.sync('**/*', {
         cwd: this.templatePath('.'),
         nodir: true
       })
 
-      files.forEach(function (entry) {
-        var source = entry
+      files.forEach((entry) => {
+        let source = entry
 
         // Handle file name
         source = source.replace(/PROJECT_NAME/g, this.options.projectName)
@@ -39,14 +39,14 @@ module.exports = generators.Base.extend({
         this.fs.copyTpl(this.templatePath(entry), this.destinationPath(source), this.options)
 
         // Handle .xcodeproj
-        var data = this.fs.read(this.destinationPath(source), 'utf8')
+        let data = this.fs.read(this.destinationPath(source), 'utf8')
         data = data.replace(/ORGANIZATION-ID.PROJECT-NAME/g,
           this.options.organizationId + '.' + this.options.projectName)
         data = data.replace(/PROJECT_NAME/g, this.options.projectName)
         data = data.replace(/ORGANIZATION_NAME/g, this.options.organizationName)
         data = data.replace(/ORGANIZATION-ID/g, this.options.organizationId)
         this.fs.write(this.destinationPath(source), data, 'utf8')
-      }.bind(this))
+      })
     }
 
   }

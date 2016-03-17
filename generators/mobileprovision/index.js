@@ -1,9 +1,9 @@
 'use strict'
-var generators = require('yeoman-generator')
-var path = require('path')
-var fs = require('fs')
+const generators = require('yeoman-generator')
+const path = require('path')
+const fs = require('fs')
 
-var resolvePath = function (string) {
+const resolvePath = function (string) {
   if (string.substr(0, 1) === '~') {
     string = process.env.HOME + string.substr(1)
   }
@@ -22,9 +22,9 @@ module.exports = generators.Base.extend({
   },
   prompting: {
     askForCertPath: function () {
-      var done = this.async()
+      let done = this.async()
 
-      var prompts = [{
+      let prompts = [{
         type: 'input',
         name: 'certPath',
         message: 'Development Certificate Path',
@@ -36,10 +36,10 @@ module.exports = generators.Base.extend({
         message: 'The certificate you provide does not exist, specify again?',
         default: true,
         when: function (answers) {
-          var done = this.async()
+          let done = this.async()
 
           answers.certPath = resolvePath(answers.certPath)
-          fs.stat(answers.certPath, function (err, stats) {
+          fs.stat(answers.certPath, (err, stats) => {
             if (err || !stats.isFile()) {
               answers.certPath = null
             }
@@ -48,14 +48,14 @@ module.exports = generators.Base.extend({
         }
       }]
 
-      this.prompt(prompts, function (props) {
+      this.prompt(prompts, (props) => {
         if (props.askCertPathAgain) {
           return this.prompting.askForCertPath.call(this)
         }
 
         this.certPath = props.certPath
         done()
-      }.bind(this))
+      })
     }
   },
 
