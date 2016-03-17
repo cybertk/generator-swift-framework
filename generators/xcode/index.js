@@ -1,10 +1,10 @@
 'use strict'
-var yeoman = require('yeoman-generator')
+var generators = require('yeoman-generator')
 var glob = require('glob')
 
-module.exports = yeoman.generators.Base.extend({
+module.exports = generators.Base.extend({
   constructor: function () {
-    yeoman.generators.Base.apply(this, arguments)
+    generators.Base.apply(this, arguments)
 
     this.option('organizationName', {
       type: String,

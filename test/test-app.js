@@ -3,8 +3,8 @@
 'use strict'
 
 var path = require('path')
-var assert = require('yeoman-generator').assert
-var helpers = require('yeoman-generator').test
+var assert = require('yeoman-assert')
+var helpers = require('yeoman-test')
 
 assert.noFilesContent = function (files, pattern) {
   files.forEach(function (file) {

@@ -4,7 +4,10 @@
   "description": "Scaffolds out a Xcode Embedded Framework project with Swift 2.0",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "cybertk/generator-swift-framework",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cybertk/generator-swift-framework.git"
+  },
   "author": {
     "name": "",
     "email": "",
@@ -32,10 +35,12 @@
     "glob": "^7.0.3",
     "underscore": "^1.8.3",
     "yamljs": "^0.2.3",
-    "yeoman-generator": "^0.20.3",
+    "yeoman-generator": "^0.22.5",
     "yosay": "^1.0.5"
   },
   "devDependencies": {
+    "yeoman-assert": "^2.0.0",
+    "yeoman-test": "^1.0.0",
     "mocha": "^2.4.5",
     "standard": "^6.0.8"
   }
