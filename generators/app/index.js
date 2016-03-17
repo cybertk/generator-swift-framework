@@ -1,7 +1,5 @@
 'use strict'
 var generators = require('yeoman-generator')
-var chalk = require('chalk')
-var yosay = require('yosay')
 var _ = require('underscore')
 
 module.exports = generators.Base.extend({
@@ -22,7 +20,9 @@ module.exports = generators.Base.extend({
       var done = this.async()
 
       // Have Yeoman greet the user.
-      this.log(yosay('Welcome to the outstanding ' + chalk.red('swift.framework') + ' generator!'))
+      this.log('Welcome to using swift.framework generator!')
+      this.log('If you have any questions, please submit issue at https://github.com/cybertk/generator-swift-framework/issues')
+      this.log()
 
       var prompts = [{
         type: 'input',

@@ -31,12 +31,9 @@
     "ios"
   ],
   "dependencies": {
-    "chalk": "^1.1.1",
     "glob": "^7.0.3",
     "underscore": "^1.8.3",
-    "yamljs": "^0.2.3",
-    "yeoman-generator": "^0.22.5",
-    "yosay": "^1.0.5"
+    "yeoman-generator": "^0.22.5"
   },
   "devDependencies": {
     "yeoman-assert": "^2.0.0",
