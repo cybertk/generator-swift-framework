@@ -1,12 +1,12 @@
 'use strict'
-var yeoman = require('yeoman-generator')
+var generators = require('yeoman-generator')
 var chalk = require('chalk')
 var yosay = require('yosay')
 var _ = require('underscore')
 
-module.exports = yeoman.generators.Base.extend({
+module.exports = generators.Base.extend({
   constructor: function () {
-    yeoman.generators.Base.apply(this, arguments)
+    generators.Base.apply(this, arguments)
 
     // This method adds support for a `--skip-install` flag
     this.option('skipInstall', {
