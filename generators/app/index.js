@@ -1,8 +1,8 @@
 'use strict'
-var generators = require('yeoman-generator')
-var chalk = require('chalk')
-var yosay = require('yosay')
-var _ = require('underscore')
+const generators = require('yeoman-generator')
+const chalk = require('chalk')
+const yosay = require('yosay')
+const _ = require('underscore')
 
 module.exports = generators.Base.extend({
   constructor: function () {
@@ -19,12 +19,12 @@ module.exports = generators.Base.extend({
 
   prompting: {
     askFor: function () {
-      var done = this.async()
+      let done = this.async()
 
       // Have Yeoman greet the user.
       this.log(yosay('Welcome to the outstanding ' + chalk.red('swift.framework') + ' generator!'))
 
-      var prompts = [{
+      let prompts = [{
         type: 'input',
         name: 'projectName',
         message: 'Project Name',
@@ -43,7 +43,7 @@ module.exports = generators.Base.extend({
         store: true
       }]
 
-      this.prompt(prompts, function (props) {
+      this.prompt(prompts, (props) => {
         this.projectName = props.projectName
         this.organizationName = props.organizationName
         this.organizationId = props.organizationId
@@ -51,63 +51,63 @@ module.exports = generators.Base.extend({
         this.props = props
 
         done()
-      }.bind(this))
+      })
     },
 
     askForCocoaPods: function () {
-      var done = this.async()
+      let done = this.async()
 
-      var prompts = [{
+      let prompts = [{
         type: 'confirm',
         name: 'cocoapods',
         message: 'Would you like to distribute via CocoaPods?',
         default: true
       }]
 
-      this.prompt(prompts, function (props) {
+      this.prompt(prompts, (props) => {
         this.cocoapods = props.cocoapods
         done()
-      }.bind(this))
+      })
     },
 
     askForGitHub: function () {
-      var done = this.async()
+      let done = this.async()
 
-      var prompts = [{
+      let prompts = [{
         type: 'input',
         name: 'githubUser',
         message: 'Would you mind telling me your username on GitHub?',
         store: true
       }]
 
-      this.prompt(prompts, function (props) {
+      this.prompt(prompts, (props) => {
         this.githubUser = props.githubUser
         this.props = _.extend(this.props, props)
         done()
-      }.bind(this))
+      })
     },
 
     askForTravis: function () {
-      var done = this.async()
+      let done = this.async()
 
-      var prompts = [{
+      let prompts = [{
         type: 'confirm',
         name: 'travis',
         message: 'Would you like to enable Travis CI?',
         default: true
       }]
 
-      this.prompt(prompts, function (props) {
+      this.prompt(prompts, (props) => {
         this.travis = props.travis
         done()
-      }.bind(this))
+      })
     },
 
     askForCertPath: function () {
-      var done = this.async()
-      var travis = this.travis
+      let done = this.async()
+      let travis = this.travis
 
-      var prompts = [{
+      let prompts = [{
         type: 'confirm',
         name: 'mobileprovision',
         message: 'Would you like to provision Development Certificate',
@@ -118,10 +118,10 @@ module.exports = generators.Base.extend({
         }
       }]
 
-      this.prompt(prompts, function (props) {
+      this.prompt(prompts, (props) => {
         this.mobileprovision = props.mobileprovision
         done()
-      }.bind(this))
+      })
     }
   },
 
