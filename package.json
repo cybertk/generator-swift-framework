@@ -39,6 +39,6 @@
     "yeoman-assert": "^2.0.0",
     "yeoman-test": "^1.0.0",
     "mocha": "^2.4.5",
-    "standard": "^6.0.8"
+    "standard": "^7.0.0"
   }
 }
