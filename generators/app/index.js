@@ -17,8 +17,6 @@ module.exports = generators.Base.extend({
 
   prompting: {
     askFor: function () {
-      var done = this.async()
-
       // Have Yeoman greet the user.
       this.log('Welcome to using swift.framework generator!')
       this.log('If you have any questions, please submit issue at https://github.com/cybertk/generator-swift-framework/issues')
@@ -43,20 +41,16 @@ module.exports = generators.Base.extend({
         store: true
       }]
 
-      this.prompt(prompts, function (props) {
+      return this.prompt(prompts).then(function (props) {
         this.projectName = props.projectName
         this.organizationName = props.organizationName
         this.organizationId = props.organizationId
 
         this.props = props
-
-        done()
       }.bind(this))
     },
 
     askForCocoaPods: function () {
-      var done = this.async()
-
       var prompts = [{
         type: 'confirm',
         name: 'cocoapods',
@@ -64,15 +58,12 @@ module.exports = generators.Base.extend({
         default: true
       }]
 
-      this.prompt(prompts, function (props) {
+      return this.prompt(prompts).then(function (props) {
         this.cocoapods = props.cocoapods
-        done()
       }.bind(this))
     },
 
     askForGitHub: function () {
-      var done = this.async()
-
       var prompts = [{
         type: 'input',
         name: 'githubUser',
@@ -80,16 +71,13 @@ module.exports = generators.Base.extend({
         store: true
       }]
 
-      this.prompt(prompts, function (props) {
+      return this.prompt(prompts).then(function (props) {
         this.githubUser = props.githubUser
         this.props = _.extend(this.props, props)
-        done()
       }.bind(this))
     },
 
     askForTravis: function () {
-      var done = this.async()
-
       var prompts = [{
         type: 'confirm',
         name: 'travis',
@@ -97,14 +85,12 @@ module.exports = generators.Base.extend({
         default: true
       }]
 
-      this.prompt(prompts, function (props) {
+      return this.prompt(prompts).then(function (props) {
         this.travis = props.travis
-        done()
       }.bind(this))
     },
 
     askForCertPath: function () {
-      var done = this.async()
       var travis = this.travis
 
       var prompts = [{
@@ -118,9 +104,8 @@ module.exports = generators.Base.extend({
         }
       }]
 
-      this.prompt(prompts, function (props) {
+      return this.prompt(prompts).then(function (props) {
         this.mobileprovision = props.mobileprovision
-        done()
       }.bind(this))
     }
   },
