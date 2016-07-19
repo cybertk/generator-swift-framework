@@ -1,6 +1,5 @@
 'use strict'
 var generators = require('yeoman-generator')
-var _ = require('underscore')
 
 module.exports = generators.Base.extend({
   constructor: function () {
@@ -41,12 +40,10 @@ module.exports = generators.Base.extend({
         store: true
       }]
 
-      return this.prompt(prompts).then(function (props) {
-        this.projectName = props.projectName
-        this.organizationName = props.organizationName
-        this.organizationId = props.organizationId
-
-        this.props = props
+      return this.prompt(prompts).then(function (answers) {
+        this.projectName = answers.projectName
+        this.organizationName = answers.organizationName
+        this.organizationId = answers.organizationId
       }.bind(this))
     },
 
@@ -58,8 +55,8 @@ module.exports = generators.Base.extend({
         default: true
       }]
 
-      return this.prompt(prompts).then(function (props) {
-        this.cocoapods = props.cocoapods
+      return this.prompt(prompts).then(function (answers) {
+        this.cocoapods = answers.cocoapods
       }.bind(this))
     },
 
@@ -71,9 +68,8 @@ module.exports = generators.Base.extend({
         store: true
       }]
 
-      return this.prompt(prompts).then(function (props) {
-        this.githubUser = props.githubUser
-        this.props = _.extend(this.props, props)
+      return this.prompt(prompts).then(function (answers) {
+        this.githubUser = answers.githubUser
       }.bind(this))
     },
 
@@ -85,8 +81,8 @@ module.exports = generators.Base.extend({
         default: true
       }]
 
-      return this.prompt(prompts).then(function (props) {
-        this.travis = props.travis
+      return this.prompt(prompts).then(function (answers) {
+        this.travis = answers.travis
       }.bind(this))
     },
 
@@ -104,8 +100,8 @@ module.exports = generators.Base.extend({
         }
       }]
 
-      return this.prompt(prompts).then(function (props) {
-        this.mobileprovision = props.mobileprovision
+      return this.prompt(prompts).then(function (answers) {
+        this.mobileprovision = answers.mobileprovision
       }.bind(this))
     }
   },
@@ -113,9 +109,9 @@ module.exports = generators.Base.extend({
   default: function () {
     this.composeWith('swift-framework:xcode', {
       options: {
-        organizationName: this.props.organizationName,
-        organizationId: this.props.organizationId,
-        projectName: this.props.projectName
+        organizationName: this.organizationName,
+        organizationId: this.organizationId,
+        projectName: this.projectName
       }
     }, {
       local: require.resolve('../xcode')
@@ -123,8 +119,8 @@ module.exports = generators.Base.extend({
 
     this.composeWith('swift-framework:readme', {
       options: {
-        projectName: this.props.projectName,
-        githubUser: this.props.githubUser
+        projectName: this.projectName,
+        githubUser: this.githubUser
       }
     }, {
       local: require.resolve('../readme')
@@ -132,7 +128,7 @@ module.exports = generators.Base.extend({
 
     this.composeWith('swift-framework:contributing', {
       options: {
-        projectName: this.props.projectName
+        projectName: this.projectName
       }
     }, {
       local: require.resolve('../contributing')
@@ -140,7 +136,7 @@ module.exports = generators.Base.extend({
 
     this.composeWith('swift-framework:script', {
       options: {
-        projectName: this.props.projectName
+        projectName: this.projectName
       }
     }, {
       local: require.resolve('../script')
@@ -148,7 +144,7 @@ module.exports = generators.Base.extend({
 
     this.composeWith('swift-framework:license', {
       options: {
-        organizationName: this.props.organizationName
+        organizationName: this.organizationName
       }
     }, {
       local: require.resolve('../license')
@@ -181,8 +177,8 @@ module.exports = generators.Base.extend({
     if (this.cocoapods) {
       this.composeWith('swift-framework:cocoapods', {
         options: {
-          projectName: this.props.projectName,
-          githubUser: this.props.githubUser
+          projectName: this.projectName,
+          githubUser: this.githubUser
         }
       }, {
         local: require.resolve('../cocoapods')
