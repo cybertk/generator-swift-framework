@@ -1,6 +1,5 @@
 {
   "name": "generator-swift-framework",
-  "version": "0.1.2",
   "description": "Scaffolds out a Xcode Embedded Framework project with Swift 2.0",
   "license": "MIT",
   "main": "app/index.js",
@@ -18,7 +17,8 @@
     "test": "npm run test:unit",
     "test:unit": "mocha",
     "test:template": "xcodebuild -list -project generators/app/templates/PROJECT_NAME.xcodeproj",
-    "open-template-project": "open generators/app/templates/PROJECT_NAME.xcodeproj"
+    "open-template-project": "open generators/app/templates/PROJECT_NAME.xcodeproj",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "files": [
     "generators"
@@ -39,6 +39,7 @@
     "yeoman-assert": "^2.0.0",
     "yeoman-test": "^1.4.0",
     "mocha": "^2.4.5",
-    "standard": "^7.1.0"
+    "standard": "^7.1.0",
+    "semantic-release": "^4.3.5"
   }
 }
