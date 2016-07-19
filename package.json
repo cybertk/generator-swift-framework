@@ -33,7 +33,7 @@
   "dependencies": {
     "glob": "^7.0.3",
     "underscore": "^1.8.3",
-    "yeoman-generator": "^0.22.5"
+    "yeoman-generator": "^0.24.1"
   },
   "devDependencies": {
     "yeoman-assert": "^2.0.0",
