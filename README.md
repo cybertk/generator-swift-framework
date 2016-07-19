@@ -6,6 +6,7 @@
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![Dependency Status](https://david-dm.org/cybertk/generator-swift-framework.svg)](https://david-dm.org/cybertk/generator-swift-framework)
 [![devDependency Status](https://david-dm.org/cybertk/generator-swift-framework/dev-status.svg)](https://david-dm.org/cybertk/generator-swift-framework#info=devDependencies)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 generator-swift-framework is used to create a Xcode [Embedded Framework](https://developer.apple.com/library/ios/documentation/General/Conceptual/ExtensibilityPG/ExtensionScenarios.html) project with the following features:
 
