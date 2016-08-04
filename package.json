@@ -38,7 +38,7 @@
   "devDependencies": {
     "yeoman-assert": "^2.2.0",
     "yeoman-test": "^1.4.0",
-    "mocha": "^2.5.3",
+    "mocha": "^3.0.1",
     "standard": "^7.1.0",
     "semantic-release": "^4.3.5"
   }
