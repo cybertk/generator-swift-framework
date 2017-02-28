@@ -39,7 +39,7 @@
     "yeoman-assert": "^2.2.0",
     "yeoman-test": "^1.4.0",
     "mocha": "^3.0.2",
-    "standard": "^8.1.0",
+    "standard": "^9.0.0",
     "semantic-release": "^4.3.5"
   }
 }
