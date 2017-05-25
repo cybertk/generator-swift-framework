@@ -40,6 +40,6 @@
     "yeoman-test": "^1.4.0",
     "mocha": "^3.0.2",
     "standard": "^10.0.2",
-    "semantic-release": "^4.3.5"
+    "semantic-release": "^6.3.6"
   }
 }
