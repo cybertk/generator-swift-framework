@@ -31,7 +31,7 @@
     "ios"
   ],
   "dependencies": {
-    "glob": "^7.0.3",
+    "glob": "^7.0.4",
     "underscore": "^1.8.3",
     "yeoman-generator": "^0.24.1"
   },
